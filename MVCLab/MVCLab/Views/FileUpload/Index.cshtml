@@ -4,12 +4,14 @@
 
 <h1>Demo Upload File</h1>
 
+<div class="text-danger">@TempData["Message"]</div>
 <form asp-action="UploadFile" enctype="multipart/form-data">
     <h2>Upload single file</h2>
+    <input name="description" placeholder="Description here" /><br />
     <input type="file" name="myfile" />
     <button>Upload</button>
 </form>
-
+<hr />
 <form asp-action="UploadFiles" enctype="multipart/form-data">
     <h2>Upload multiple file</h2>
     <input type="file" multiple name="myfiles" />
