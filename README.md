@@ -7,3 +7,6 @@ Demo lớp thứ 4
 * Lab 02 bài 2 (2.2) - Upload file
 	- Chú ý trên Action để nhận được file dùng kiểu ```IFormFile```
 	- Như các ngôn ngữ khác thì form gửi file phải có thuộc tính ```enctype="multipart/form-data"``` và ```method=POST```
+
+# Buổi 04 (04/10/2023)
+## Validation
