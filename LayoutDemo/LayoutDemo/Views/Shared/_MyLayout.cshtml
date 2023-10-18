@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    @await RenderSectionAsync("MyStyles", required: false)
+    <style>
+        .mycontent{min-height:400px; border: 1px solid blue;}
+
+        .mycontent a{text-decoration: none;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="bg-light">#HEADER</header>
+        <div class="row m-0">
+            <aside class="col-3 mycontent">
+
+                @await Html.PartialAsync("DanhMuc")
+
+                @{
+                    var danhMuc = new List<Category>
+                    {
+                        new Category{Id = 1, Name = "Nước ngọt"},
+                        new Category{Id = 2, Name = "Tivi"},
+                        new Category{Id = 3, Name = "Tủ lạnh"}
+                    };
+                }
+
+                @await Html.PartialAsync("Category", danhMuc)
+
+            </aside>
+            <div class="col-9 mycontent">
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="bg-info text-center">
+            &copy; Bản quyền thuộc về XYZ
+        </footer>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    @await RenderSectionAsync("MyStcripts", required: false)
+</body>
+</html>
