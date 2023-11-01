@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+<form asp-action="Search">
+    <h3>Search Product</h3>
+	Name: <input name="keyword" /><button>Search</button>
+    <br />
+    Price from: <input name="priceFrom" type="number" />
+    to: <input name="priceTo" type="number" />
+</form>
