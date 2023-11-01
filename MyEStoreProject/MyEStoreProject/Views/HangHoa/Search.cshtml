@@ -1,12 +1,29 @@
-﻿
+﻿@model IEnumerable<HangHoaVM>
 @{
-    ViewData["Title"] = "Search";
+	ViewData["Title"] = "Search";
 }
 
 <form asp-action="Search">
-    <h3>Search Product</h3>
+	<h3>Search Product</h3>
 	Name: <input name="keyword" /><button>Search</button>
-    <br />
-    Price from: <input name="priceFrom" type="number" />
-    to: <input name="priceTo" type="number" />
+	<br />
+	Price from: <input name="priceFrom" type="number" />
+	to: <input name="priceTo" type="number" />
 </form>
+
+@if (Model != null)
+{
+	<table class="table table-hover">
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.TenHh</td>
+				<td>
+					<img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" style="height:90px;" />
+				</td>
+				<td>@item.DonGia.ToString("#,##0")</td>
+				<td>@item.Loai</td>
+			</tr>
+		}
+	</table>
+}
