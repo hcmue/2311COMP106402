@@ -1,0 +1,29 @@
+﻿@{
+	ViewData["Title"] = "TimKiem";
+}
+
+<h1>Tìm kiếm theo tên</h1>
+<input id="txtKeyword" placeholder="Tìm gì?" />
+
+<div id="result"></div>
+
+@section Scripts{
+	<script>
+		$(document).ready(function () {
+			$("#txtKeyword").keyup(function () {
+				let giaTriTim = $(this).val().trim();
+				if (giaTriTim.length > 0) {
+					$.ajax({
+						url: "/HangHoa/XuLyTimKiem",
+						data: { "keyword": giaTriTim},
+						success: function(res){
+							$("#result").html(res);
+						}
+					});
+				}
+			});
+		});
+	</script>
+
+}
+

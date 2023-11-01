@@ -46,5 +46,24 @@ namespace MyEStoreProject.Controllers
 
 			return View(result);
 		}
+
+
+		public IActionResult TimKiem()
+		{
+			return View();
+		}
+
+		public IActionResult XuLyTimKiem(string keyword)
+		{
+			var data = _ctx.HangHoas.Where(hh => hh.TenHh.Contains(keyword)).Select(hh => new HangHoaVM
+			{
+				MaHh = hh.MaHh,
+				TenHh = hh.TenHh,
+				DonGia = hh.DonGia ?? 0,
+				Hinh = hh.Hinh,
+				Loai = hh.MaLoaiNavigation.TenLoai
+			}).ToList();
+			return PartialView(data);
+		}
 	}
 }

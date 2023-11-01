@@ -1,0 +1,19 @@
+﻿@model IEnumerable<HangHoaVM>
+
+@{
+    ViewData["Title"] = "XuLyTimKiem";
+}
+
+<table class="table table-hover">
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item.TenHh</td>
+			<td>
+				<img src="~/Hinh/HangHoa/@item.Hinh" alt="@item.TenHh" style="height:90px;" />
+			</td>
+			<td>@item.DonGia.ToString("#,##0")</td>
+			<td>@item.Loai</td>
+		</tr>
+	}
+</table>
