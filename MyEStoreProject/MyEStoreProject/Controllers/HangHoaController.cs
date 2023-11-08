@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyEStoreProject.Data;
 using MyEStoreProject.Models;
 
@@ -13,6 +14,7 @@ namespace MyEStoreProject.Controllers
 			_ctx = ctx;
 		}
 
+		[Authorize]
 		public IActionResult Search()
 		{
 			return View();
@@ -47,7 +49,7 @@ namespace MyEStoreProject.Controllers
 			return View(result);
 		}
 
-
+		[Authorize(Roles ="Admin")]
 		public IActionResult TimKiem()
 		{
 			return View();
