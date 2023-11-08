@@ -5,3 +5,8 @@ Demo lớp thứ 4
 
 * Restore database MyEstoreDB.sql
 * Extract file Hinh.zip to wwwroot
+
+Start: Clone branch Day06_...
+
+
+# Authentication & Authorization
