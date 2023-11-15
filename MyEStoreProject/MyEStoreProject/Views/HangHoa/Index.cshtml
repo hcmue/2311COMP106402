@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MyEStoreProject.Data.HangHoa>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách Hàng hóa</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.TenHh)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DonGia)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Hinh)
+			</th>
+			
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.TenHh)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DonGia)
+				</td>
+				<td>
+					<img src="~/Hinh/HangHoa/@item.Hinh" height="100" />
+				</td>
+				<td>
+					<a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.MaHh">Mua</a> 
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -14,6 +14,22 @@ namespace MyEStoreProject.Controllers
 			_ctx = ctx;
 		}
 
+		public IActionResult Index()
+		{
+			return View(_ctx.HangHoas);
+		}
+
+		public IActionResult ChiTiet(int id)
+		{
+			var hangHoa = _ctx.HangHoas.SingleOrDefault(h => h.MaHh == id);
+			if (hangHoa == null)
+			{
+				return NotFound();
+			}
+			return View(hangHoa);
+		}
+
+
 		[Authorize]
 		public IActionResult Search()
 		{
@@ -49,7 +65,7 @@ namespace MyEStoreProject.Controllers
 			return View(result);
 		}
 
-		[Authorize(Roles ="Admin")]
+		[Authorize(Roles = "Admin")]
 		public IActionResult TimKiem()
 		{
 			return View();

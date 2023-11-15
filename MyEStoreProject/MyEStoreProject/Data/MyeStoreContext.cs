@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using MyEStoreProject.Models;
 
 namespace MyEStoreProject.Data
 {
@@ -538,5 +539,7 @@ namespace MyEStoreProject.Data
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<MyEStoreProject.Models.CartItem>? CartItem { get; set; }
     }
 }
